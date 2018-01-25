@@ -1,0 +1,144 @@
+"""
+
+25/03/2015 Seance 1 :  
+
+
+Compte rendu de la première séance :
+
+Objectif fixé :
+- programmer la première partie du Mastermind
+- discuter avec le prof de comment pourrions nous nous y prendre
+pour creer l'intélligence artificielle de la deuxième partie (afin de nous avancer un peu pour la semaine prochaine)
+
+
+Dans l'ensemble nos objectifs furent remplis.
+En effet, la création d'une combinaison par l'ordinateur,
+à faire deviner à l'utilisateur semblait réalisable dans les temps impartis.
+Ce pourquoi dans un premier temps nous avons programmé différentes fonctions permettant
+de creer une liste aléatoire de couleurs
+Ensuite, dans la partie "ordinateur vs joueur" nous utilisons 'input' afin de permettre
+au joueur de rentrer sa combinaison et ainsi nous allons comparer cette dernière avec
+celle créée aléatoirement par l'ordinateur.
+Nous nous sommes aperçu que les résultats de notre comparaison ne marchaient pas à tous les coups.
+En effet, dans "placement et couleur", le code reste à améliorer car le résultat donné par l'ordinateur
+pour le nombre de pions blancs n'est pas toujours bon. Ainsi, ce problème nous à retardé dans notre progression.
+Il faudra donc remédier à ceci d'ici la semaine prochaine.
+
+Pour ce qui est de la partie de discution avec le professeur, nous n'avons pas eu l'occasion de l'aborder, cependant étant considérée
+comme de "l'avance sur la prochaine séance", cela n'est pas réellement un problème en soi.
+
+
+
+
+
+
+
+01/04/2015 Seance 2 :  
+
+
+Compte rendu de la deuxième séance :
+
+Objectif fixé :
+- régler le souci de la semaine précédente pour ce qui est des erreurs entre les blancs et les noirs qui ne correspondent pas au valeurs souhaitées
+- discutter avec le professeur de la méthode à utiliser pour la seconde partie du projet. Comme demandé dans le sujet.
+- Commencer à programmer cette secinde partie afin de poursuivre l'avancée du projet dans les délais prévus
+
+La totalité de nos objectifs ont été remplis.
+En effet, l'erreur contenur dans notre premier jet du projet était simple à corriger, mais difficile à detécter.
+Effectivement, lorsque l'on modifiait la combinaison choisie par l'ordinateur (partie avec la modification
+d'éléments en "donnée traitée") nous ne reprenions pas , pour le second tour, la combinaison secrète à découvrir initiale,
+mais celle modifiée. Ainsi les erreurs appraissaent dès le tour 2. L'utilisation d'une variable "c" qui contient les même élèments
+qui la combinaison secrète, nous permet de modifié les éléments de la combinaison sans modifier cette même combinaison à chaque tour.
+L'utilisation de la fonction "try" vu en cours, nous permet de traiter différentes exceptions en passant tout simplement à l'étape suivantes.
+Finalement après quelques minutes de modifications, notre programme fonctionne donc parfaitement.
+
+Nous avons ensuite entamé notre second objectif, à savoir discutter avec le professeur de la méthode à aborder pour que l'ordinateur
+trouve la combinaison souhaitée en un minimum de coup.
+
+Une fois ceci réalisé, nous y voyons plus claire sur la méthode à utiliser.
+Nous allons créer un liste de toutes les combinaisons secrètes possibles.
+Cette liste servira de choix à l'ordinateur et se réduira à chaque tours.
+En effet, à chaque réponse de l'utilisateur, l'ordinateur retiréra les combinaisons qui ne corespondent pas à une éventuelle réponse "4 noirs".
+Par exemple si la réponse de l'utilisateur est "4 blancs", l'ordinateur supprimera des possibilités impossibles : toutes les combinaisons qui
+no contiennent pas ces 4 couleurs.
+
+ Nous allons éudier les différents cas possibles et tenter de poursuivre la programmation afin de permettre à l'ordinateur d'étudier chacune 
+des solutions possibles. Le but de cet partie est bien entendu d'utiliser la très grande mémoire de l'ordinateur, qui peut se "souvenir" de
+ chacune des solutions éventuelles restante.
+
+Nous avons entamé cette programmation, cependant nous préférons bien nous schématiser le problème ainsi que la façon de le résoudre, plutôt que de 
+nous lancer directement dans une programmation infructueuse.
+
+Finalement nos objectifs fixés ont été remplis. 
+
+Pour la semaine prochaine, nous devrions poursuivre la programmation. 
+Por le bien, si nous voulons être "dans les temps impartis" il faudrait que nous ayons programmé, pour la fin de la prochaine séance
+la liste avec les différentes possibilitées de combinaison, ainsi que la manière d'analyser et de traiter la réponse donné par l'utilisateur
+en fonction des différents cas possibles
+
+
+
+
+
+
+08/04/2015 Seance 3 :
+
+
+Compte rendu de la troisème séance :
+
+Objectifs fixés:
+- terminer la partie 1, c'est à dire vérifier si tous les cas fonctionnent, si l'ordinateur répond bien les bonnes valeurs pour 
+les pions noirs et les pions blancs
+- terminer la partie 2 qui correspond à "l'intelligence artificielle"; essayer de réduire au maximum et d'optimiser la fonction
+afin que l'ordinateur trouve la combinaison secrète choisie par le joueur humain en environ 5-6 tours
+- remplir toutes les docstrings et les c.u dans toutes les fonctions
+- réflechir à propos de l'interface graphique. Voir si nous allons utiliser tkinter ou le module Turtle de Python
+
+Les objectifs ont été en partie remplis. 
+Nous avons fini la partie 1. Le nombre de pions et de couleurs sont paramétrables parmis une liste de 10 couleurs
+différentes que nous avons choisi. L'entrée des couleurs est facilitée en entrant seulement la première lettre au lieu de la 
+couleur en entier (ex: r au lieu de Rouge). L'ordinateur répond en fonction de chaque combinaison rentrée par le joueur une 
+valeur pour noir et une autre pour blanc (ex: noir : 1 blanc : 2). 
+
+La partie 2 du programme est finie également. Le joueur choisie une combinaison de 4 pions parmis 8 couleurs fixées préalablement
+et l'ordinateur essaie de la trouver en moins de 10 coups. Pour cela, une fonction crée une liste des 4096 combinaisons possibles.
+L'ordinateur, en fonction des réponses que le joueur lui apporte, va éliminer les combinaisons qui ne sont pas possibles dans cette 
+liste et va donc au final réussir à obtenir une seule combinaison restante qui correspond à la combinaison rentrée par le joueur
+au départ. D'après les quelques parties que nous avons pu faire quand le jeu fu opérationel, l'ordinateur trouve la combinaison
+secrète en environ 5-6 tours. 
+
+Toutes les docstrings ont été remplies, avec les conditions d'utilisations. La mise en page a également été faite avec des \n permettant
+d'aérer le texte et de rendre plus agréable la lecture au joueur. 
+
+Cependant, la fonction qui va nous permettre de tester et de calculer la moyenne de tours pour notre partie 2 n'est pas encore finie car 
+il y a un problème "ValueError: empty range for randrange(0,0,0)". Nous devons voir à quel endroit l'intervalle arrive à zéro et ainsi le
+modifier afin que l'erreur d'intervalle soit réglée. 
+
+Pour la semaine prochaine, nous devons finir la fonction et faire la moyenne des tours sur 100 parties afin d'évaluer les performances de 
+notre programme. 
+
+
+
+15/04/15 Seance 4 :
+
+Compte rendu de la séance 4 :
+
+Objectifs fixés:
+- terminer le programme qui calcule la moyenne
+- faire une partie sur interface graphique
+- terminer les docstrings pour les 3 programmes
+- commencer le diaporama 
+
+Le programme qui calcule la moyenne sur 100 parties est bien fini. Il renvoie un tuple avec le nombre de coups de la partie la plus
+rapide, la moyenne des coups sur les 100 parties et le nombre de coups sur la partie la plus longue (ex: (2,5.63,7)). 
+Nous avons fait la partie 1 du Mastermind sur interface graphique en utilisant tkinter pour afficher les règles et python pour le jeu.
+Le jeu est parametré avec 4 pions et 8 couleurs, et la combinaison de couleurs que le joueur rentre se remplie au fur et à mesure; des pions noirs
+ou blancs apparaissent sur la côté des pions. 
+Les docstrings sur la programme du Mastermind, le programme de la moyenne et le programme de l'interface graphique sont bien remplies avec les conditions
+d'utilisations. 
+
+Pour le diaporama, nous allons prendre des captures d'écran pour illustrer la présentation et nous allons faire des exemples pour chaque fonction. 
+
+
+
+"""
